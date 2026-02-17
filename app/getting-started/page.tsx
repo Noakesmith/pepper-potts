@@ -429,6 +429,29 @@ export default function GettingStarted() {
         </Step>
       </section>
 
+      {/* Just ask Claude */}
+      <section className="mb-14 bg-stone-100 rounded-lg px-6 py-6">
+        <p className="text-[15px] font-medium text-stone-900 mb-2">
+          Stuck on something?
+        </p>
+        <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
+          If anything in this guide doesn&apos;t make sense — a term, a step,
+          a concept — just ask Claude. That&apos;s the whole point. Open your
+          terminal, type <Inline>claude</Inline>, and ask it in plain English.
+        </p>
+        <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
+          &ldquo;What is Git?&rdquo; &ldquo;How do I create a GitHub
+          repo?&rdquo; &ldquo;What does PARA mean?&rdquo; &ldquo;Help me
+          write a daily kickoff command.&rdquo;
+        </p>
+        <p className="text-[13px] text-stone-500 leading-relaxed">
+          Claude Code is patient, thorough, and doesn&apos;t judge. It built
+          this entire website. It can walk you through any step. You
+          don&apos;t need to understand everything upfront — just start, and
+          ask as you go.
+        </p>
+      </section>
+
       {/* FAQ */}
       <section className="mb-14">
         <p className="text-[11px] font-medium text-stone-400 uppercase tracking-widest mb-5">
