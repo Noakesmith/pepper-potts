@@ -1,0 +1,23 @@
+{
+  "name": "pepper-potts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tim's personal infrastructure backend — email ingestion, webhooks, and integrations for the Obsidian vault",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "turndown": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/turndown": "^5.0.5",
+    "typescript": "^5.5.0"
+  }
+}
