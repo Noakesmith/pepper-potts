@@ -1,7 +1,18 @@
 @import 'tailwindcss';
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.003em;
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-serif), Charter, 'Bitstream Charter', Georgia, serif;
+}
+
+@layer base {
+  body {
+    letter-spacing: -0.003em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  .font-serif {
+    letter-spacing: -0.02em;
+  }
 }
