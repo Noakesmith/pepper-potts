@@ -66,7 +66,7 @@ export default function Dashboard() {
           <StatCard value="7" label="Live Features" />
           <StatCard value="14" label="Commands" />
           <StatCard value="6" label="Skills" />
-          <StatCard value="6" label="Integrations" />
+          <StatCard value="8" label="Integrations" />
         </div>
       </div>
 
