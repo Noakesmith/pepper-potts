@@ -110,6 +110,9 @@ export default function Dashboard() {
               'Deadline scanning — kickoffs read every project and flag deadlines within 7 days',
               'Operational patterns — reflections track schedule drift and evolve against it',
               'Relationship tracking — actionable follow-through items surfaced in ceremonies',
+              '/buffer-mode — rapid-fire task knockoff with shortest-first queue and "next?" loop',
+              'Session prep workflow — Claude reads context and drafts shareable agendas before recurring sessions',
+              'Curated AI reading list on getting-started page',
             ]}
           />
           <ReleaseEntry
