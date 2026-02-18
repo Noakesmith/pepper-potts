@@ -13,6 +13,7 @@ const NAV_SECTIONS = [
   { id: 'what-you-need', label: "What You'll Need" },
   { id: 'setup', label: 'Setup Guide' },
   { id: 'faq', label: 'Common Questions' },
+  { id: 'reading', label: 'Recommended Reading' },
   { id: 'credits', label: 'Credits' },
 ]
 
@@ -562,6 +563,24 @@ export default function GettingStarted() {
             </div>
           </section>
 
+          {/* Recommended Reading */}
+          <section className="mb-14" id="reading">
+            <SectionLabel>Recommended reading</SectionLabel>
+            <div className="space-y-0">
+              <ReadingItem
+                title="A Guide to Which AI to Use in the Agentic Era"
+                author="Ethan Mollick"
+                date="Feb 2026"
+                href="https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the"
+                desc="Explains the shift from chatbot conversations to autonomous agents. Breaks down the three layers you need to understand: Models (the AI brains), Apps (the interfaces), and Harnesses (systems that let AI use tools and take actions). Essential context for understanding what Pepper Potts is actually doing under the hood."
+              />
+            </div>
+            <p className="text-[11px] text-stone-900/35 mt-4 italic">
+              AI moves fast. These recommendations were accurate when added but may
+              become outdated. Check publication dates.
+            </p>
+          </section>
+
           {/* Credits */}
           <section className="mb-14" id="credits">
             <SectionLabel>Credits</SectionLabel>
@@ -719,6 +738,39 @@ function Faq({ q, a }: { q: string; a: string }) {
     <div className="py-3.5 border-b border-stone-900/[0.04]">
       <div className="text-[15px] font-semibold text-stone-900">{q}</div>
       <div className="text-[13px] text-stone-900/55 mt-1 leading-relaxed">{a}</div>
+    </div>
+  )
+}
+
+function ReadingItem({
+  title,
+  author,
+  date,
+  href,
+  desc,
+}: {
+  title: string
+  author: string
+  date: string
+  href: string
+  desc: string
+}) {
+  return (
+    <div className="py-3.5 border-b border-stone-900/[0.04]">
+      <div className="flex items-baseline gap-2.5 flex-wrap">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[15px] font-semibold text-red-600 hover:text-red-700 underline underline-offset-2 transition-colors"
+        >
+          {title}
+        </a>
+        <span className="text-[11px] text-stone-900/35">
+          {author} &middot; {date}
+        </span>
+      </div>
+      <div className="text-[13px] text-stone-900/55 mt-1 leading-relaxed">{desc}</div>
     </div>
   )
 }
