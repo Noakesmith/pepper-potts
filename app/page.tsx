@@ -102,8 +102,9 @@ export default function Dashboard() {
             date="Feb 18"
             title="Email & Calendar Intelligence"
             items={[
-              'Gmail MCP — Claude can now read, search, send, and manage emails natively',
+              'Gmail MCP — search, read, send, and manage emails natively from any session',
               'Google Calendar MCP — time-aware kickoffs with direct calendar access',
+              'MCP reliability — packages globally installed, config auto-documented for every session',
               'Daily AI learning time — 30 min non-negotiable built into every plan',
               'Living daily plan — HTML dashboard updates in real-time as the day shifts',
               'Deadline scanning — kickoffs read every project and flag deadlines within 7 days',
