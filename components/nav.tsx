@@ -24,9 +24,9 @@ export function Nav() {
           <Image
             src="/logo.png"
             alt="Pepper Potts"
-            width={28}
-            height={28}
-            className="rounded-lg"
+            width={36}
+            height={36}
+            className="rounded-full shadow-sm border border-red-200/50"
           />
           <span className="font-serif text-xl text-stone-900 tracking-tight">
             Pepper <span className="text-red-600">Potts</span>

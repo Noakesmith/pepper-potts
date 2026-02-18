@@ -2,6 +2,7 @@
 
 import { useState, useEffect, type ReactNode } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Dashboard() {
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
@@ -34,33 +35,49 @@ export default function Dashboard() {
       <div className="pt-16 pb-14 mb-16 relative">
         <div className="absolute bottom-0 -left-24 -right-24 h-px bg-gradient-to-r from-transparent via-stone-200/80 to-transparent" />
 
-        <div className="inline-flex items-center gap-2.5 bg-red-500/[0.08] border border-red-500/15 text-red-600 text-[11px] font-bold px-[18px] py-[7px] rounded-full mb-7 uppercase tracking-[1px]">
-          <span className="w-2 h-2 bg-red-500 rounded-full animate-glow-pulse shadow-[0_0_8px_rgba(220,38,38,0.4)]" />
-          Active Development
+        <div className="flex items-start gap-8 mb-10 max-md:flex-col max-md:items-center max-md:text-center">
+          <div className="shrink-0">
+            <div className="relative">
+              <Image
+                src="/logo.png"
+                alt="Pepper Potts"
+                width={120}
+                height={120}
+                className="rounded-2xl shadow-lg border-2 border-red-100"
+              />
+              <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 bg-red-500 rounded-full border-[3px] border-stone-50 shadow-[0_0_8px_rgba(220,38,38,0.4)] animate-glow-pulse" />
+            </div>
+          </div>
+
+          <div>
+            <div className="inline-flex items-center gap-2.5 bg-red-500/[0.08] border border-red-500/15 text-red-600 text-[11px] font-bold px-[18px] py-[7px] rounded-full mb-5 uppercase tracking-[1px]">
+              Active Development
+            </div>
+
+            <h1 className="font-serif text-[52px] font-normal tracking-[-0.03em] leading-[1.1] mb-5 text-stone-900 max-md:text-4xl">
+              Personal Operating System
+            </h1>
+
+            <p className="text-[17px] text-stone-900/55 max-w-[700px] leading-[1.7]">
+              A living intelligence layer that wraps around every domain of your
+              life &mdash;{' '}
+              <strong className="text-stone-900 font-semibold">
+                work, health, finances, coaching
+              </strong>{' '}
+              &mdash; and orchestrates them the way a world-class chief of staff
+              would. Built by{' '}
+              <strong className="text-stone-900 font-semibold">
+                <a
+                  href="https://timnoakesmith.com"
+                  className="hover:text-red-600 transition-colors"
+                >
+                  Tim Noakesmith
+                </a>
+              </strong>
+              , an executive coach, entirely through conversation with Claude.
+            </p>
+          </div>
         </div>
-
-        <h1 className="font-serif text-[52px] font-normal tracking-[-0.03em] leading-[1.1] mb-5 text-stone-900 max-md:text-4xl">
-          Personal Operating System
-        </h1>
-
-        <p className="text-[17px] text-stone-900/55 max-w-[700px] leading-[1.7] mb-10">
-          A living intelligence layer that wraps around every domain of your
-          life &mdash;{' '}
-          <strong className="text-stone-900 font-semibold">
-            work, health, finances, coaching
-          </strong>{' '}
-          &mdash; and orchestrates them the way a world-class chief of staff
-          would. Built by{' '}
-          <strong className="text-stone-900 font-semibold">
-            <a
-              href="https://timnoakesmith.com"
-              className="hover:text-red-600 transition-colors"
-            >
-              Tim Noakesmith
-            </a>
-          </strong>
-          , an executive coach, entirely through conversation with Claude.
-        </p>
 
         <div className="grid grid-cols-4 gap-3.5 max-md:grid-cols-2">
           <StatCard value="7" label="Live Features" />
