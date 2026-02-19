@@ -4,10 +4,6 @@ import { useState, useEffect, FormEvent } from 'react'
 
 const NAV_SECTIONS = [
   { id: 'intro', label: 'Introduction' },
-  { id: 'backstory', label: 'Backstory' },
-  { id: 'vision', label: 'My Vision' },
-  { id: 'day-in-life', label: 'How I Use This' },
-  { id: 'features', label: 'Current Features' },
   { id: 'what-is', label: 'What Is Pepper Potts?' },
   { id: 'how-it-works', label: 'How It Works' },
   { id: 'what-you-need', label: "What You'll Need" },
@@ -127,297 +123,13 @@ export default function BuildYourOwn() {
             <p className="text-[15px] text-stone-700 leading-relaxed mb-4">
               How to build your own AI chief of staff using Obsidian, Claude Code,
               and a handful of free tools. No coding experience required &mdash; just
-              follow the steps.
+              fork, configure, and start talking.
             </p>
             <p className="text-[13px] text-stone-900/55 leading-relaxed">
               I&apos;m not a developer. I&apos;m an executive coach. Everything
               you see here was built through conversation with Claude &mdash; describing
               what I wanted in plain English and letting it write the code.
             </p>
-          </section>
-
-          {/* Backstory */}
-          <section className="mb-14" id="backstory">
-            <SectionLabel>Backstory</SectionLabel>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              I heard <A href="https://github.com/heyitsnoah">Noah Brier</A> on a
-              podcast talking about using Claude Code with Obsidian. He&apos;d built
-              an open source starter kit called{' '}
-              <A href="https://github.com/heyitsnoah/claudesidian">Claudesidian</A>{' '}
-              &mdash; a pre-configured vault template designed to be driven by AI. That
-              was the spark.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              I started with Noah&apos;s template and quickly realized this could be
-              something much bigger. Not just a note-taking setup, but a full
-              personal operating system &mdash; one that manages my coaching business,
-              tracks my finances, processes my emails, and runs my daily
-              ceremonies. All through conversation with Claude.
-            </p>
-            <p className="text-[13px] text-stone-900/55 leading-relaxed">
-              Pepper Potts is what emerged. I&apos;m still building it &mdash; a little
-              each week, always in service of the actual work, not as a project
-              for its own sake. This guide is everything you need to build your
-              own version.
-            </p>
-          </section>
-
-          {/* Vision */}
-          <section className="mb-14" id="vision">
-            <SectionLabel>My vision for Pepper Potts</SectionLabel>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              I want an intelligence layer that wraps around every domain of my
-              life &mdash; coaching, finances, health, relationships, creativity,
-              logistics &mdash; and orchestrates them the way a world-class chief of
-              staff would. Structure that feels like liberation, not control.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              The morning kickoff already shapes my day. The evening reflection
-              captures what happened. The weekly review closes open loops. Email
-              forwarding means important messages land in my vault without me
-              lifting a finger. And it&apos;s all connected &mdash; coaching actions,
-              financial data, project status &mdash; surfaced exactly when I need it.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              Eventually, I want health data flowing in (HRV, sleep), calendar
-              integration for time-aware decisions, pattern detection that notices
-              recurring themes across weeks of notes, and client prep briefs
-              generated automatically before every coaching session.
-            </p>
-            <p className="font-serif text-[15px] text-stone-600 italic">
-              The coaching clients will eventually ask: &ldquo;How do you stay so
-              organized?&rdquo; And I&apos;ll say: &ldquo;Let me show you.&rdquo;
-              That is the product.
-            </p>
-          </section>
-
-          {/* A day in the life */}
-          <section className="mb-14" id="day-in-life">
-            <SectionLabel>How I actually use this</SectionLabel>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              I open my laptop in the morning, fire up the terminal, and type{' '}
-              <Cmd>/daily-kickoff</Cmd>. Claude reads my daily note, checks
-              my coaching actions, pulls in any forwarded emails that arrived
-              overnight, and asks me: &ldquo;What are your three wins for
-              today?&rdquo; We have a quick conversation and I&apos;m locked in
-              for the day in about five minutes.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              During the day, I can say &ldquo;check my email for updates on X&rdquo;
-              and Claude searches my Gmail directly, reads the threads, and gives me
-              the full picture. Important emails get forwarded to my vault automatically.
-              When I need to research something, Claude searches across my entire
-              vault &mdash; hundreds of notes, meeting transcripts, project docs &mdash;
-              and synthesizes what it finds.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              Between coaching calls, I have buffer blocks &mdash; 30-minute windows
-              for knocking off small tasks. I ask Claude &ldquo;what&apos;s in
-              my buffer?&rdquo; and it pulls up the running list. I pick a few
-              things, knock them out, move on.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              In the evening, I run <Cmd>/daily-reflection</Cmd>. Claude
-              walks me through what I actually did versus what I intended, captures
-              the key insights, and plants a seed for tomorrow. It&apos;s a
-              five-minute conversation that replaces what used to be fifteen
-              minutes of scattered journaling.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              On Sundays, <Cmd>/weekly-review</Cmd> closes the week &mdash; what
-              went well, what didn&apos;t, what&apos;s carrying forward. It
-              processes the inbox, archives completed projects, and sets up the
-              week ahead.
-            </p>
-            <p className="text-[13px] text-stone-900/55 leading-relaxed">
-              The magic isn&apos;t any one feature. It&apos;s that everything
-              talks to everything. My coaching actions show up in my morning
-              kickoff. My forwarded emails land in the right place. My weekly
-              review catches things I would have dropped. The system holds what
-              my brain can&apos;t.
-            </p>
-          </section>
-
-          {/* ====== GATED CONTENT ====== */}
-          <div className="relative">
-            {!unlocked && (
-              <div className="absolute inset-0 z-20 pointer-events-none" style={{ top: '-20px' }}>
-                {/* Gradient fade from visible to blurred */}
-                <div className="h-32 bg-gradient-to-b from-transparent to-stone-50" />
-                {/* Capture form overlay */}
-                <div className="bg-stone-50 pointer-events-auto">
-                  <div className="max-w-md mx-auto px-6 py-12 text-center">
-                    <div className="inline-flex items-center gap-2 bg-red-500/[0.06] border border-red-500/15 text-red-600 text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6">
-                      <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
-                      Full guide below
-                    </div>
-                    <h3 className="font-serif text-[24px] text-stone-900 tracking-[-0.02em] mb-3">
-                      Get the full setup guide
-                    </h3>
-                    <p className="text-[13px] text-stone-500 leading-relaxed mb-8">
-                      Features, tools, step-by-step setup, and everything you need to
-                      build your own AI chief of staff. Free &mdash; just drop your name
-                      and email.
-                    </p>
-                    {submitted ? (
-                      <div className="text-[15px] font-medium text-green-700 animate-fade-in">
-                        You&apos;re in. Enjoy the guide.
-                      </div>
-                    ) : (
-                      <form onSubmit={handleSubscribe} className="space-y-3">
-                        <input
-                          type="text"
-                          placeholder="Your name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          required
-                          className="w-full px-4 py-3 text-[14px] bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-300 transition-all placeholder:text-stone-400"
-                        />
-                        <input
-                          type="email"
-                          placeholder="Your email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                          className="w-full px-4 py-3 text-[14px] bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-300 transition-all placeholder:text-stone-400"
-                        />
-                        <button
-                          type="submit"
-                          disabled={submitting}
-                          className="w-full px-4 py-3 text-[14px] font-semibold text-white bg-stone-900 hover:bg-stone-800 rounded-xl transition-all disabled:opacity-50"
-                        >
-                          {submitting ? 'Unlocking...' : 'Unlock the guide'}
-                        </button>
-                      </form>
-                    )}
-                    <p className="text-[11px] text-stone-400 mt-4">
-                      No spam. Just the guide and occasional updates on the project.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-            <div className={!unlocked ? 'blur-sm select-none' : ''} style={!unlocked ? { maxHeight: '600px', overflow: 'hidden' } : undefined}>
-
-          {/* Current features */}
-          <section className="mb-14" id="features">
-            <SectionLabel>Current features</SectionLabel>
-
-            <CategoryLabel>Daily Ceremonies</CategoryLabel>
-            <div className="space-y-0">
-              <FeatureDetail
-                name="Daily Kickoff"
-                command="/daily-kickoff"
-                desc="Interactive morning ceremony. Claude checks your daily note, surfaces coaching actions, reviews your schedule, and helps you set intentions for the day. Takes about 5 minutes."
-              />
-              <FeatureDetail
-                name="Daily Reflection"
-                command="/daily-reflection"
-                desc="Evening wind-down. Reviews what you did versus what you planned, captures insights, and plants a seed for tomorrow."
-              />
-              <FeatureDetail
-                name="Weekly Review"
-                command="/weekly-review"
-                desc="Sunday ritual. Closes out the week with a headline, wins, patterns, and energy assessment. Clears open loops, processes the inbox, and sets up the week ahead."
-              />
-              <FeatureDetail
-                name="Wrap Up"
-                command="/wrap-up"
-                desc="End-of-session command. Commits your changes to git, pushes to remote, and closes out cleanly."
-              />
-            </div>
-
-            <CategoryLabel>Thinking & Research</CategoryLabel>
-            <div className="space-y-0">
-              <FeatureDetail
-                name="Thinking Partner"
-                command="/thinking-partner"
-                desc="Collaborative exploration mode. Claude asks clarifying questions, searches your vault for related notes, tracks insights as they emerge, and resists jumping to solutions. Great for working through complex decisions."
-              />
-              <FeatureDetail
-                name="Research Assistant"
-                command="/research-assistant"
-                desc="Deep research across your entire vault. Reads all relevant notes, extracts insights, maps connections between ideas, identifies contradictions and gaps, and suggests next steps."
-              />
-              <FeatureDetail
-                name="Inbox Processor"
-                command="/inbox-processor"
-                desc="Scans your inbox folder and helps categorize everything into the right PARA destination — Projects, Areas, Resources, or Archive. Identifies patterns and suggests notes to combine."
-              />
-              <FeatureDetail
-                name="Process Conversations"
-                command="/process-conversations"
-                desc="Processes conversation transcripts and extracts key insights, action items, and themes into structured notes."
-              />
-            </div>
-
-            <CategoryLabel>Integrations</CategoryLabel>
-            <div className="space-y-0">
-              <FeatureDetail
-                name="Gmail MCP"
-                desc="Claude can read, search, send, and manage your email natively. Ask 'what's the latest on X?' and it searches your inbox, reads the threads, and gives you the full picture. No copy-pasting email content into chat."
-              />
-              <FeatureDetail
-                name="Google Calendar MCP"
-                desc="Claude can read your calendar directly — time-aware kickoffs, meeting prep, and scheduling decisions based on your actual day."
-              />
-              <FeatureDetail
-                name="Email → Vault"
-                desc="Forward any email to your Postmark address and it appears in your vault as a markdown note. Sender name is included in the filename so emails with the same subject don't overwrite each other."
-              />
-              <FeatureDetail
-                name="Coach Tools Integration"
-                desc="Open coaching actions are fetched from the Coach Tools API and surfaced during the daily kickoff. You can mark actions as done directly from the ceremony."
-              />
-              <FeatureDetail
-                name="Voice Captures"
-                desc="Quick captures via Siri land in the inbox and get processed during the daily kickoff."
-              />
-            </div>
-
-            <CategoryLabel>Utilities</CategoryLabel>
-            <div className="space-y-0">
-              <FeatureDetail
-                name="De-AI-ify"
-                command="/de-ai-ify"
-                desc="Strips AI-generated writing patterns from any text — the overused transitions, hedging language, corporate buzzwords. Makes AI-assisted writing sound like you."
-              />
-              <FeatureDetail
-                name="Add Frontmatter"
-                command="/add-frontmatter"
-                desc="Analyzes notes and adds intelligent YAML frontmatter — detects note type and generates appropriate properties like title, date, tags, and status."
-              />
-              <FeatureDetail
-                name="Download Attachment"
-                command="/download-attachment"
-                desc="Downloads files from URLs, analyzes the content, generates descriptive filenames, and organizes them into your attachments folder."
-              />
-              <FeatureDetail
-                name="Pragmatic Review"
-                command="/pragmatic-review"
-                desc="Interactive code review focusing on YAGNI and KISS principles. Keeps your system lean and avoids over-engineering."
-              />
-            </div>
-
-            <CategoryLabel>Knowledge Skills (auto-triggered)</CategoryLabel>
-            <div className="space-y-0">
-              <FeatureDetail
-                name="Obsidian Markdown"
-                desc="Complete reference for Obsidian-flavored markdown. Auto-loads when you're working with notes — wikilinks, embeds, callouts, properties, Mermaid diagrams."
-              />
-              <FeatureDetail
-                name="JSON Canvas"
-                desc="Full spec reference for Obsidian Canvas files. Auto-loads when creating visual canvases, mind maps, or flowcharts."
-              />
-              <FeatureDetail
-                name="Obsidian Bases"
-                desc="Reference for Obsidian Bases — database-like views of your notes with filters, formulas, and summaries."
-              />
-              <FeatureDetail
-                name="Systematic Debugging"
-                desc="When something breaks, this skill auto-loads a 4-phase debugging methodology. Investigate root cause first, never jump to fixes."
-              />
-            </div>
           </section>
 
           {/* What is this */}
@@ -463,57 +175,103 @@ export default function BuildYourOwn() {
               <ToolRow name="Obsidian" desc="Free note-taking app" link="https://obsidian.md" cost="Free" />
               <ToolRow name="Claude Code" desc="AI assistant that runs in your terminal" link="https://docs.anthropic.com/en/docs/claude-code" cost="Subscription" />
               <ToolRow name="GitHub" desc="For syncing and backing up your vault" link="https://github.com" cost="Free" />
-              <ToolRow name="Vercel" desc="Hosts the Pepper Potts backend" link="https://vercel.com" cost="Free tier" />
-              <ToolRow name="Postmark" desc="Receives emails and forwards them to your vault" link="https://postmarkapp.com" cost="Free tier" />
             </div>
+            <p className="text-[11px] text-stone-900/35 mt-4 italic">
+              Optional: Vercel (free tier) and Postmark (free tier) for the email-to-vault pipeline.
+            </p>
           </section>
 
           {/* Setup guide */}
           <section className="mb-14" id="setup">
             <SectionLabel>Setup guide</SectionLabel>
 
-            <Step number={1} title="Install Obsidian and create your vault">
+            <Step number={1} title="Fork the repository">
               <p>
-                Download <A href="https://obsidian.md">Obsidian</A> and create a
-                new vault. This is just a folder on your computer where all your
-                notes will live.
+                Go to the{' '}
+                <A href="https://github.com/Noakesmith/pepper-potts">
+                  Pepper Potts GitHub repo
+                </A>{' '}
+                and click <strong>Fork</strong>. This gives you your own copy of the
+                entire system &mdash; folder structure, commands, configuration, everything.
               </p>
-              <p>Create the PARA folder structure inside your vault:</p>
-              <Code>{`00_Inbox/
-01_Projects/
-02_Areas/
-03_Resources/
-04_Archive/
-05_Attachments/
-06_Metadata/`}</Code>
               <p>
-                <strong>00_Inbox</strong> is where new stuff lands.{' '}
-                <strong>01_Projects</strong> is for active work with deadlines.{' '}
-                <strong>02_Areas</strong> is for ongoing responsibilities (health,
-                finances). <strong>03_Resources</strong> is reference material.{' '}
-                <strong>04_Archive</strong> is for completed stuff.
+                Clone your fork to your computer. This folder becomes your Obsidian vault.
+              </p>
+              <Code>git clone https://github.com/YOUR-USERNAME/pepper-potts.git my-vault</Code>
+            </Step>
+
+            <Step number={2} title="Open it in Obsidian">
+              <p>
+                Download <A href="https://obsidian.md">Obsidian</A> if you haven&apos;t already.
+                Open it, choose &ldquo;Open folder as vault&rdquo;, and select the folder
+                you just cloned.
+              </p>
+              <p>
+                You&apos;ll see the PARA folder structure already set up &mdash; Inbox, Projects,
+                Areas, Resources, Archive. Everything is ready to go.
               </p>
             </Step>
 
-            <Step number={2} title="Set up Git sync">
-              <p>
-                Create a <strong>private</strong> repository on{' '}
-                <A href="https://github.com/new">GitHub</A> (e.g.,{' '}
-                <Inline>my-vault</Inline>).
-              </p>
-              <p>
-                In Obsidian, install the{' '}
-                <A href="https://github.com/Vinzent03/obsidian-git">obsidian-git</A>{' '}
-                community plugin. This automatically syncs your vault to GitHub
-                every few minutes.
-              </p>
-              <p>
-                Configure it to auto-pull and auto-push. Now your notes are backed
-                up and accessible from anywhere.
-              </p>
-            </Step>
+            {/* ====== PAYWALL STARTS HERE ====== */}
+            <div className="relative">
+              {!unlocked && (
+                <div className="absolute inset-0 z-20 pointer-events-none" style={{ top: '-20px' }}>
+                  <div className="h-32 bg-gradient-to-b from-transparent to-stone-50" />
+                  <div className="bg-stone-50 pointer-events-auto">
+                    <div className="max-w-md mx-auto px-6 py-12 text-center">
+                      <div className="inline-flex items-center gap-2 bg-red-500/[0.06] border border-red-500/15 text-red-600 text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6">
+                        <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                        5 more steps below
+                      </div>
+                      <h3 className="font-serif text-[24px] text-stone-900 tracking-[-0.02em] mb-3">
+                        Get the full setup guide
+                      </h3>
+                      <p className="text-[13px] text-stone-500 leading-relaxed mb-8">
+                        The remaining steps cover Claude Code setup, personalizing your
+                        CLAUDE.md, creating your first commands, and connecting email.
+                        Free &mdash; just drop your details.
+                      </p>
+                      {submitted ? (
+                        <div className="text-[15px] font-medium text-green-700 animate-fade-in">
+                          You&apos;re in. Enjoy the guide.
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSubscribe} className="space-y-3">
+                          <input
+                            type="text"
+                            placeholder="Your name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            className="w-full px-4 py-3 text-[14px] bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-300 transition-all placeholder:text-stone-400"
+                          />
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="w-full px-4 py-3 text-[14px] bg-white border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-300 transition-all placeholder:text-stone-400"
+                          />
+                          <button
+                            type="submit"
+                            disabled={submitting}
+                            className="w-full px-4 py-3 text-[14px] font-semibold text-white bg-stone-900 hover:bg-stone-800 rounded-xl transition-all disabled:opacity-50"
+                          >
+                            {submitting ? 'Unlocking...' : 'Unlock the full guide'}
+                          </button>
+                        </form>
+                      )}
+                      <p className="text-[11px] text-stone-400 mt-4">
+                        No spam. Just the guide and occasional updates on the project.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div className={!unlocked ? 'blur-sm select-none' : ''} style={!unlocked ? { maxHeight: '500px', overflow: 'hidden' } : undefined}>
 
-            <Step number={3} title="Install Claude Code">
+            <Step number={3} title="Install and run Claude Code">
               <p>
                 Follow the{' '}
                 <A href="https://docs.anthropic.com/en/docs/claude-code">
@@ -524,56 +282,66 @@ export default function BuildYourOwn() {
               </p>
               <Code>claude</Code>
               <p>
-                Claude can now see all your notes and help you work with them.
+                Claude will automatically read the <Inline>CLAUDE.md</Inline> file in your
+                vault. This is the brain &mdash; it tells Claude how your system works, what
+                the folders mean, and how you like to operate.
               </p>
             </Step>
 
-            <Step number={4} title="Create your CLAUDE.md">
+            <Step number={4} title="Personalize your CLAUDE.md">
               <p>
-                Create a file called <Inline>CLAUDE.md</Inline> in the root of your
-                vault. This is the instruction file that tells Claude how your vault
-                works, what the folder structure means, and how you like to work.
+                The <Inline>CLAUDE.md</Inline> that came with the fork is a starter template.
+                Open it and make it yours. Tell Claude:
               </p>
+              <ul className="list-disc list-inside space-y-1.5 text-[13px] text-stone-600">
+                <li>What you do for work</li>
+                <li>What projects you&apos;re focused on</li>
+                <li>How you like to organize your time</li>
+                <li>Any tools or services you use (calendar, email, etc.)</li>
+              </ul>
               <p>
-                You can start with the{' '}
-                <A href="https://github.com/Noakesmith/pepper-potts">
-                  template from this repo
-                </A>{' '}
-                and customize it. The more context you give Claude about your
-                workflow, the better it works.
-              </p>
-            </Step>
-
-            <Step number={5} title="Add your first commands">
-              <p>
-                Commands are reusable prompts that live in{' '}
-                <Inline>.claude/commands/</Inline>. Start with a daily kickoff:
-              </p>
-              <p>
-                Create <Inline>.claude/commands/daily-kickoff.md</Inline> with a
-                prompt that describes your ideal morning review &mdash; what you want
-                Claude to check, what questions to ask you, what to surface.
-              </p>
-              <p>
-                Then in Claude Code, just type <Cmd>/daily-kickoff</Cmd> and
-                it runs.
+                The more context you give, the better Claude works. You can also just tell Claude
+                to update it: &ldquo;Add a section about my coaching business to the CLAUDE.md&rdquo;.
               </p>
             </Step>
 
-            <Step number={6} title="Set up email forwarding (optional)">
+            <Step number={5} title="Let Claude set up your vault">
+              <p>
+                Tell Claude to organize your vault based on the CLAUDE.md:
+              </p>
+              <Code>Set up my vault based on the CLAUDE.md — create the PARA folders, add a daily note template, and configure the basic structure.</Code>
+              <p>
+                Claude will read the instructions, create the folder structure, set up
+                templates, and get everything ready. This is the magic &mdash; you don&apos;t
+                need to do it manually.
+              </p>
+            </Step>
+
+            <Step number={6} title="Try your first command">
+              <p>
+                The fork comes with pre-built commands in <Inline>.claude/commands/</Inline>.
+                Try the daily kickoff:
+              </p>
+              <Code>/daily-kickoff</Code>
+              <p>
+                Claude will walk you through a morning check-in &mdash; how you&apos;re feeling,
+                what&apos;s on your plate, what your focus is for the day. It takes about five
+                minutes and sets the tone for everything that follows.
+              </p>
+              <p>
+                Other commands to try: <Cmd>/daily-reflection</Cmd>,{' '}
+                <Cmd>/thinking-partner</Cmd>, <Cmd>/weekly-review</Cmd>.
+              </p>
+            </Step>
+
+            <Step number={7} title="Set up email forwarding (optional)">
               <p>
                 This is the Pepper Potts backend &mdash; a tiny server that catches
                 emails and turns them into vault notes.
               </p>
               <ol className="list-decimal list-inside space-y-2 text-[13px] text-stone-600">
                 <li>
-                  Fork the{' '}
-                  <A href="https://github.com/Noakesmith/pepper-potts">
-                    pepper-potts repo
-                  </A>
-                </li>
-                <li>
-                  Deploy it to <A href="https://vercel.com/new">Vercel</A> (one
+                  Deploy your fork to <A href="https://vercel.com/new">Vercel</A> (one
                   click &mdash; import from GitHub)
                 </li>
                 <li>
@@ -592,17 +360,8 @@ export default function BuildYourOwn() {
               </ol>
             </Step>
 
-            <Step number={7} title="Start using it">
-              <p>
-                That&apos;s it. Open your terminal each morning, run{' '}
-                <Inline>claude</Inline> in your vault, and type{' '}
-                <Cmd>/daily-kickoff</Cmd>.
-              </p>
-              <p>
-                From there, you build. Add more commands. Integrate your tools.
-                Connect your calendar. The system grows with you.
-              </p>
-            </Step>
+              </div>{/* end blur wrapper */}
+            </div>{/* end paywall container */}
           </section>
 
           {/* Just ask Claude */}
@@ -614,11 +373,6 @@ export default function BuildYourOwn() {
               If anything in this guide doesn&apos;t make sense &mdash; a term, a step,
               a concept &mdash; just ask Claude. That&apos;s the whole point. Open your
               terminal, type <Inline>claude</Inline>, and ask it in plain English.
-            </p>
-            <p className="text-[13px] text-stone-600 leading-relaxed mb-3">
-              &ldquo;What is Git?&rdquo; &ldquo;How do I create a GitHub
-              repo?&rdquo; &ldquo;What does PARA mean?&rdquo; &ldquo;Help me
-              write a daily kickoff command.&rdquo;
             </p>
             <p className="text-[13px] text-stone-900/55 leading-relaxed">
               Claude Code is patient, thorough, and doesn&apos;t judge. It built
@@ -685,9 +439,6 @@ export default function BuildYourOwn() {
             </div>
           </section>
 
-            </div>{/* end blur wrapper */}
-          </div>{/* end gated content */}
-
           {/* Footer */}
           <div className="flex items-baseline gap-6 text-[13px] text-stone-900/45">
             <a
@@ -714,14 +465,6 @@ export default function BuildYourOwn() {
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[11px] font-bold text-stone-900/35 uppercase tracking-[0.5px] mb-5">
-      {children}
-    </p>
-  )
-}
-
-function CategoryLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-[11px] font-bold text-stone-900/25 uppercase tracking-[0.5px] mb-3 mt-8 first:mt-0">
       {children}
     </p>
   )
@@ -793,7 +536,7 @@ function Step({
 
 function Code({ children }: { children: React.ReactNode }) {
   return (
-    <pre className="bg-stone-900/[0.04] rounded-xl px-4 py-3 text-[12px] text-stone-700 font-mono overflow-x-auto">
+    <pre className="bg-stone-900/[0.04] rounded-xl px-4 py-3 text-[12px] text-stone-700 font-mono overflow-x-auto whitespace-pre-wrap">
       {children}
     </pre>
   )
@@ -864,30 +607,6 @@ function ReadingItem({
         <span className="text-[11px] text-stone-900/35">
           {author} &middot; {date}
         </span>
-      </div>
-      <div className="text-[13px] text-stone-900/55 mt-1 leading-relaxed">{desc}</div>
-    </div>
-  )
-}
-
-function FeatureDetail({
-  name,
-  command,
-  desc,
-}: {
-  name: string
-  command?: string
-  desc: string
-}) {
-  return (
-    <div className="py-3.5 border-b border-stone-900/[0.04]">
-      <div className="flex items-baseline gap-2.5">
-        <span className="text-[15px] font-semibold text-stone-900">{name}</span>
-        {command && (
-          <code className="text-[11px] font-mono font-semibold text-red-600 bg-red-500/[0.08] px-1.5 py-0.5 rounded-md">
-            {command}
-          </code>
-        )}
       </div>
       <div className="text-[13px] text-stone-900/55 mt-1 leading-relaxed">{desc}</div>
     </div>

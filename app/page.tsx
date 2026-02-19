@@ -222,15 +222,74 @@ export default function Dashboard() {
         </Card>
       </Section>
 
-      {/* ====== 02: VISION & PHILOSOPHY ====== */}
+      {/* ====== 02: BACKSTORY ====== */}
+      <Section
+        id="backstory"
+        number="02"
+        title="Backstory"
+        isCollapsed={collapsed.backstory}
+        onToggle={() => toggle('backstory')}
+      >
+        <div className="fade-in bg-white border border-stone-900/[0.08] rounded-[20px] p-7 shadow-[0_1px_3px_rgba(28,25,23,0.04)] space-y-4">
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            I heard <a href="https://github.com/heyitsnoah" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline underline-offset-2 transition-colors">Noah Brier</a> on a
+            podcast talking about using Claude Code with Obsidian. He&apos;d built
+            an open source starter kit called{' '}
+            <a href="https://github.com/heyitsnoah/claudesidian" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline underline-offset-2 transition-colors">Claudesidian</a>
+            {' '}&mdash; a pre-configured vault template designed to be driven by AI. That
+            was the spark.
+          </p>
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            I started with Noah&apos;s template and quickly realized this could be
+            something much bigger. Not just a note-taking setup, but a full
+            personal operating system &mdash; one that manages my coaching business,
+            tracks my finances, processes my emails, and runs my daily
+            ceremonies. All through conversation with Claude.
+          </p>
+          <p className="text-[13px] text-stone-900/55 leading-relaxed">
+            Pepper Potts is what emerged. I&apos;m still building it &mdash; a little
+            each week, always in service of the actual work, not as a project
+            for its own sake.
+          </p>
+        </div>
+      </Section>
+
+      {/* ====== 03: MY VISION ====== */}
       <Section
         id="vision"
-        number="02"
-        title="Vision & Philosophy"
+        number="03"
+        title="My Vision"
         isCollapsed={collapsed.vision}
         onToggle={() => toggle('vision')}
       >
-        <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+        <div className="fade-in bg-white border border-stone-900/[0.08] rounded-[20px] p-7 shadow-[0_1px_3px_rgba(28,25,23,0.04)] space-y-4">
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            I want an intelligence layer that wraps around every domain of my
+            life &mdash; coaching, finances, health, relationships, creativity,
+            logistics &mdash; and orchestrates them the way a world-class chief of
+            staff would. Structure that feels like liberation, not control.
+          </p>
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            The morning kickoff already shapes my day. The evening reflection
+            captures what happened. The weekly review closes open loops. Email
+            forwarding means important messages land in my vault without me
+            lifting a finger. And it&apos;s all connected &mdash; coaching actions,
+            financial data, project status &mdash; surfaced exactly when I need it.
+          </p>
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            Eventually, I want health data flowing in (HRV, sleep), calendar
+            integration for time-aware decisions, pattern detection that notices
+            recurring themes across weeks of notes, and client prep briefs
+            generated automatically before every coaching session.
+          </p>
+          <p className="font-serif text-[15px] text-stone-600 italic">
+            The coaching clients will eventually ask: &ldquo;How do you stay so
+            organized?&rdquo; And I&apos;ll say: &ldquo;Let me show you.&rdquo;
+            That is the product.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1 mt-5">
           <PhilosophyCard
             title="&ldquo;Structure as liberation&rdquo;"
             desc="Direction with flow, not rigid control. When you wake up, the day is already shaped — not rigidly, but the way a river is shaped by its banks."
@@ -250,10 +309,91 @@ export default function Dashboard() {
         </div>
       </Section>
 
-      {/* ====== 03: WHAT'S NEXT ====== */}
+      {/* ====== 04: HOW I USE THIS ====== */}
+      <Section
+        id="day-in-life"
+        number="04"
+        title="How I Actually Use This"
+        isCollapsed={collapsed['day-in-life']}
+        onToggle={() => toggle('day-in-life')}
+      >
+        <div className="fade-in bg-white border border-stone-900/[0.08] rounded-[20px] p-7 shadow-[0_1px_3px_rgba(28,25,23,0.04)] space-y-4">
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            I open my laptop in the morning, fire up the terminal, and type{' '}
+            <code className="text-[12px] font-mono font-semibold text-red-600 bg-red-500/[0.08] px-1.5 py-0.5 rounded-md">/daily-kickoff</code>. Claude reads my daily note, checks
+            my coaching actions, pulls in any forwarded emails that arrived
+            overnight, and asks me: &ldquo;What are your three wins for
+            today?&rdquo; We have a quick conversation and I&apos;m locked in
+            for the day in about five minutes.
+          </p>
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            During the day, I can say &ldquo;check my email for updates on X&rdquo;
+            and Claude searches my Gmail directly, reads the threads, and gives me
+            the full picture. Important emails get forwarded to my vault automatically.
+            When I need to research something, Claude searches across my entire
+            vault &mdash; hundreds of notes, meeting transcripts, project docs &mdash;
+            and synthesizes what it finds.
+          </p>
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            Between coaching calls, I have buffer blocks &mdash; 30-minute windows
+            for knocking off small tasks. I ask Claude &ldquo;what&apos;s in
+            my buffer?&rdquo; and it pulls up the running list. I pick a few
+            things, knock them out, move on.
+          </p>
+          <p className="text-[13px] text-stone-600 leading-relaxed">
+            In the evening, I run <code className="text-[12px] font-mono font-semibold text-red-600 bg-red-500/[0.08] px-1.5 py-0.5 rounded-md">/daily-reflection</code>. Claude
+            walks me through what I actually did versus what I intended, captures
+            the key insights, and plants a seed for tomorrow.
+          </p>
+          <p className="text-[13px] text-stone-900/55 leading-relaxed">
+            The magic isn&apos;t any one feature. It&apos;s that everything
+            talks to everything. My coaching actions show up in my morning
+            kickoff. My forwarded emails land in the right place. My weekly
+            review catches things I would have dropped. The system holds what
+            my brain can&apos;t.
+          </p>
+        </div>
+      </Section>
+
+      {/* ====== 05: CURRENT FEATURES ====== */}
+      <Section
+        id="features"
+        number="05"
+        title="Current Features"
+        isCollapsed={collapsed.features}
+        onToggle={() => toggle('features')}
+      >
+        <div className="space-y-5">
+          <FeatureCategory title="Daily Ceremonies">
+            <FeatureRow name="Daily Kickoff" command="/daily-kickoff" desc="Morning ceremony — state check, work landscape, intentions. ~5 minutes." />
+            <FeatureRow name="Daily Reflection" command="/daily-reflection" desc="Evening wind-down — progress vs plan, insights, tomorrow's seed." />
+            <FeatureRow name="Weekly Review" command="/weekly-review" desc="Sunday ritual — close the week, clear open loops, set up next week." />
+            <FeatureRow name="Wrap Up" command="/wrap-up" desc="End-of-session — commits changes, pushes to remote, closes out." />
+          </FeatureCategory>
+          <FeatureCategory title="Thinking & Research">
+            <FeatureRow name="Thinking Partner" command="/thinking-partner" desc="Collaborative exploration — asks questions, resists jumping to solutions." />
+            <FeatureRow name="Research Assistant" command="/research-assistant" desc="Deep research across your entire vault — connections, contradictions, gaps." />
+            <FeatureRow name="Process Conversations" command="/process-conversations" desc="Extracts insights, actions, and themes from conversation transcripts." />
+          </FeatureCategory>
+          <FeatureCategory title="Integrations">
+            <FeatureRow name="Gmail MCP" desc="Read, search, send emails natively from any session." />
+            <FeatureRow name="Google Calendar MCP" desc="Time-aware kickoffs with direct calendar access." />
+            <FeatureRow name="Email → Vault" desc="Forward emails to your Postmark address, they appear as vault notes." />
+            <FeatureRow name="Coach Tools" desc="Coaching actions surfaced in kickoff, mark done from ceremony." />
+            <FeatureRow name="Voice Captures" desc="Siri captures land in inbox, processed during kickoff." />
+          </FeatureCategory>
+          <FeatureCategory title="Utilities">
+            <FeatureRow name="De-AI-ify" command="/de-ai-ify" desc="Strips AI writing patterns — makes AI-assisted text sound like you." />
+            <FeatureRow name="Buffer Mode" command="/buffer-mode" desc="Rapid-fire task knockoff with shortest-first queue." />
+            <FeatureRow name="Inbox Processor" command="/inbox-processor" desc="Categorize inbox items into PARA destinations." />
+          </FeatureCategory>
+        </div>
+      </Section>
+
+      {/* ====== 06: WHAT'S NEXT ====== */}
       <Section
         id="roadmap"
-        number="03"
+        number="06"
         title="What&rsquo;s Next"
         isCollapsed={collapsed.roadmap}
         onToggle={() => toggle('roadmap')}
@@ -277,10 +417,10 @@ export default function Dashboard() {
         </div>
       </Section>
 
-      {/* ====== 04: ARCHITECTURE ====== */}
+      {/* ====== 07: ARCHITECTURE ====== */}
       <Section
         id="architecture"
-        number="04"
+        number="07"
         title="Architecture"
         isCollapsed={collapsed.architecture}
         onToggle={() => toggle('architecture')}
@@ -348,10 +488,10 @@ export default function Dashboard() {
         </div>
       </Section>
 
-      {/* ====== 05: PRODUCT BACKLOG ====== */}
+      {/* ====== 08: PRODUCT BACKLOG ====== */}
       <Section
         id="backlog"
-        number="05"
+        number="08"
         title="Product Backlog"
         isCollapsed={collapsed.backlog}
         onToggle={() => toggle('backlog')}
@@ -459,10 +599,10 @@ export default function Dashboard() {
         </div>
       </Section>
 
-      {/* ====== 06: KEY LINKS ====== */}
+      {/* ====== 09: KEY LINKS ====== */}
       <Section
         id="links"
-        number="06"
+        number="09"
         title="Key Links"
         isCollapsed={collapsed.links}
         onToggle={() => toggle('links')}
@@ -474,9 +614,9 @@ export default function Dashboard() {
             href="https://pepperpotts.co"
           />
           <LinkCard
-            label="Getting Started"
+            label="Build Your Own"
             value="Setup Guide"
-            href="/getting-started"
+            href="/build-your-own"
             internal
           />
           <LinkCard
@@ -619,6 +759,33 @@ function ReleaseEntry({
           </li>
         ))}
       </ul>
+    </div>
+  )
+}
+
+function FeatureCategory({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div className="fade-in bg-white border border-stone-900/[0.08] rounded-[20px] p-7 shadow-[0_1px_3px_rgba(28,25,23,0.04)] transition-all duration-200 hover:border-red-600/25 hover:shadow-[0_4px_24px_rgba(28,25,23,0.06)]">
+      <h4 className="text-[11px] font-bold uppercase tracking-[0.5px] text-stone-900/25 mb-3">
+        {title}
+      </h4>
+      {children}
+    </div>
+  )
+}
+
+function FeatureRow({ name, command, desc }: { name: string; command?: string; desc: string }) {
+  return (
+    <div className="py-2.5 border-b border-stone-900/[0.04] last:border-b-0">
+      <div className="flex items-baseline gap-2.5">
+        <span className="text-[14px] font-semibold text-stone-900">{name}</span>
+        {command && (
+          <code className="text-[11px] font-mono font-semibold text-red-600 bg-red-500/[0.08] px-1.5 py-0.5 rounded-md">
+            {command}
+          </code>
+        )}
+      </div>
+      <div className="text-[12px] text-stone-900/50 mt-0.5 leading-relaxed">{desc}</div>
     </div>
   )
 }
