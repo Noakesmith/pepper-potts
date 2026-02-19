@@ -305,15 +305,16 @@ export default function BuildYourOwn() {
               </p>
             </Step>
 
-            <Step number={5} title="Let Claude set up your vault">
+            <Step number={5} title="Let Claude make it yours">
               <p>
-                Tell Claude to organize your vault based on the CLAUDE.md:
+                The folder structure is already there from the fork. Now tell Claude
+                to personalize it:
               </p>
-              <Code>Set up my vault based on the CLAUDE.md — create the PARA folders, add a daily note template, and configure the basic structure.</Code>
+              <Code>Read my CLAUDE.md and set up the vault for me — create a profile note, add templates, set up my daily note, and configure anything that needs my context.</Code>
               <p>
-                Claude will read the instructions, create the folder structure, set up
-                templates, and get everything ready. This is the magic &mdash; you don&apos;t
-                need to do it manually.
+                Claude will read your instructions, fill in the gaps, and connect
+                everything based on what you told it in step 4. This is the magic &mdash;
+                you describe your life, Claude wires the system.
               </p>
             </Step>
 
