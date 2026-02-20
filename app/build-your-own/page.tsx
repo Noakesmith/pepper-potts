@@ -361,6 +361,32 @@ export default function BuildYourOwn() {
               </ol>
             </Step>
 
+            <Step number={8} title="Connect Google Calendar (optional)">
+              <p>
+                Add your calendar to the system using an MCP (Model Context Protocol) server.
+                This lets Claude read your schedule, create events, and check availability.
+              </p>
+              <p>
+                Install the Google Calendar MCP:
+              </p>
+              <Code>claude mcp add google-calendar -- npx -y @cocal/google-calendar-mcp</Code>
+              <p>
+                On first run, it will open a browser window to authenticate with your Google account.
+                You&apos;ll need to create OAuth credentials in the{' '}
+                <A href="https://console.cloud.google.com/apis/credentials">Google Cloud Console</A>{' '}
+                first &mdash; enable the Calendar API, create an OAuth 2.0 client, and save the
+                credentials to <Inline>~/.gmail-mcp/gcp-oauth.keys.json</Inline>.
+              </p>
+              <p>
+                Once connected, Claude can do things like &ldquo;What&apos;s on my calendar today?&rdquo;,
+                &ldquo;Block 2&ndash;3pm for deep work&rdquo;, or &ldquo;When&apos;s my next free hour?&rdquo;
+              </p>
+              <p className="text-[11px] text-stone-900/45 italic mt-2">
+                Note: it may not work perfectly out of the box. If you hit auth issues, restart Claude Code
+                and re-run the MCP setup. The server initializes when Claude Code starts.
+              </p>
+            </Step>
+
               </div>{/* end blur wrapper */}
             </div>{/* end paywall container */}
           </section>
