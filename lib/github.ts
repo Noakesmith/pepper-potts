@@ -35,7 +35,7 @@ export async function commitFileToVault({
 
   filePath += `/${filename}`
 
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(filePath)}`
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath.split('/').map(encodeURIComponent).join('/')}`
   const base64Content = toBase64(content)
 
   // Check if the file already exists
