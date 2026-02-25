@@ -51,7 +51,7 @@ export default function Dashboard() {
                 work, health, finances, coaching
               </strong>{' '}
               &mdash; and orchestrates them the way a world-class chief of staff
-              would. Built by{' '}
+              would. Evolved by{' '}
               <strong className="text-stone-900 font-semibold">
                 <a
                   href="https://timnoakesmith.com"
@@ -60,7 +60,7 @@ export default function Dashboard() {
                   Tim Noakesmith
                 </a>
               </strong>
-              , an executive coach, entirely through conversation with Claude.
+              , inspired by people smarter than him, mostly growing in Claude Code.
             </p>
           </div>
         </div>
