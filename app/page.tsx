@@ -2,7 +2,6 @@
 
 import { useState, useEffect, type ReactNode } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Dashboard() {
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
@@ -36,19 +35,6 @@ export default function Dashboard() {
         <div className="absolute bottom-0 -left-24 -right-24 h-px bg-gradient-to-r from-transparent via-stone-200/80 to-transparent" />
 
         <div className="flex items-start gap-8 mb-10 max-md:flex-col max-md:items-center max-md:text-center">
-          <div className="shrink-0">
-            <div className="relative">
-              <Image
-                src="/logo.png"
-                alt="Pepper Potts"
-                width={120}
-                height={120}
-                className="rounded-2xl shadow-lg border-2 border-red-100"
-              />
-              <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 bg-red-500 rounded-full border-[3px] border-stone-50 shadow-[0_0_8px_rgba(220,38,38,0.4)] animate-glow-pulse" />
-            </div>
-          </div>
-
           <div>
             <div className="inline-flex items-center gap-2.5 bg-red-500/[0.08] border border-red-500/15 text-red-600 text-[11px] font-bold px-[18px] py-[7px] rounded-full mb-5 uppercase tracking-[1px]">
               Active Development
