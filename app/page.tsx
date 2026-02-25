@@ -282,11 +282,6 @@ export default function Dashboard() {
             recurring themes across weeks of notes, and client prep briefs
             generated automatically before every coaching session.
           </p>
-          <p className="font-serif text-[15px] text-stone-600 italic">
-            The coaching clients will eventually ask: &ldquo;How do you stay so
-            organized?&rdquo; And I&apos;ll say: &ldquo;Let me show you.&rdquo;
-            That is the product.
-          </p>
         </div>
 
         <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1 mt-5">
