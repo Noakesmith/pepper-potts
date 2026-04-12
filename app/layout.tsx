@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
-import { Nav } from '@/components/nav'
+// import { Nav } from '@/components/nav' // disabled during refactor — site in holding state
 
 const inter = Inter({
   subsets: ['latin'],
@@ -42,7 +42,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sourceSerif.variable} font-sans antialiased bg-stone-50 text-stone-900`}
       >
-        <Nav />
         {children}
       </body>
     </html>
