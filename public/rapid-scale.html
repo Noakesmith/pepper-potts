@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapid Scale Diagnostic</title>
+<meta name="description" content="A 16-point pre-flight checklist to diagnose whether a company is set up to rapidly scale. Strategy · Leadership · Demand · Execution.">
+<meta property="og:title" content="Rapid Scale Diagnostic">
+<meta property="og:description" content="A 16-point pre-flight checklist to diagnose whether a company is set up to rapidly scale.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e5dfd4;
+    --card: #ffffff;
+    --red: #c44545;
+    --amber: #d89230;
+    --green: #4a8a4a;
+    --focus: #b8651f;
+    --focus-bg: #fef3e7;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  header {
+    padding: 24px 32px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  h1 {
+    font-family: "Georgia", "Iowan Old Style", serif;
+    font-size: 26px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .meta input[type=text] {
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    padding: 4px 6px;
+    font-size: 13px;
+    color: var(--ink);
+    width: 130px;
+    font-family: inherit;
+  }
+  .meta input[type=text]:focus { outline: none; border-bottom-color: var(--ink); }
+  button {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button:hover { background: var(--card); border-color: var(--muted); }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    margin: 0;
+  }
+  .quadrant {
+    background: var(--bg);
+    padding: 20px 24px;
+  }
+  .quadrant h2 {
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px 14px;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .card.focus {
+    border-color: var(--focus);
+    background: var(--focus-bg);
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .card h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .card .desc {
+    margin: 3px 0 9px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .score-badge {
+    font-family: "Georgia", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--muted);
+    min-width: 28px;
+    text-align: right;
+    line-height: 1;
+  }
+  .score-badge.s-low { color: var(--red); }
+  .score-badge.s-mid { color: var(--amber); }
+  .score-badge.s-hi  { color: var(--green); }
+  .focus-tag {
+    display: none;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--focus);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .card.focus .focus-tag { display: inline; }
+  .scale {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 6px;
+  }
+  .scale button {
+    flex: 1;
+    padding: 5px 0;
+    font-size: 11px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--muted);
+    border-radius: 3px;
+    min-width: 0;
+  }
+  .scale button:hover {
+    background: #fff;
+    color: var(--ink);
+  }
+  .scale button.selected {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+    font-weight: 600;
+  }
+  .scale button.selected.v-low { background: var(--red); border-color: var(--red); }
+  .scale button.selected.v-mid { background: var(--amber); border-color: var(--amber); }
+  .scale button.selected.v-hi  { background: var(--green); border-color: var(--green); }
+  .detail {
+    margin: 4px 0 8px;
+    font-size: 12px;
+  }
+  .detail > summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 0;
+    user-select: none;
+    border-top: 1px dashed var(--line);
+    padding-top: 8px;
+  }
+  .detail > summary::-webkit-details-marker { display: none; }
+  .detail > summary::before {
+    content: "▸ ";
+    display: inline-block;
+    transition: transform 0.15s;
+    color: var(--muted);
+  }
+  .detail[open] > summary::before { transform: rotate(90deg); }
+  .detail > summary:hover { color: var(--ink); }
+  .bullets {
+    margin: 8px 0 10px;
+    padding-left: 18px;
+    color: var(--ink);
+  }
+  .bullets li {
+    margin-bottom: 4px;
+    line-height: 1.45;
+  }
+  .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .example {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    background: var(--bg);
+    border-left: 2px solid var(--line);
+    padding: 6px 8px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.4;
+  }
+  .example-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--focus);
+    flex-shrink: 0;
+    padding-top: 1px;
+    min-width: 62px;
+  }
+  .example-text { color: var(--ink); }
+  .card.focus .example { border-left-color: var(--focus); }
+  .notes {
+    width: 100%;
+    border: none;
+    border-top: 1px dashed var(--line);
+    background: transparent;
+    padding: 6px 0 0;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--ink);
+    resize: vertical;
+    min-height: 0;
+    height: 22px;
+    transition: height 0.15s;
+  }
+  .notes:focus { outline: none; height: 60px; }
+  .notes:not(:placeholder-shown) { height: 60px; }
+
+  footer {
+    padding: 24px 32px 40px;
+    border-top: 1px solid var(--line);
+    background: var(--card);
+  }
+  footer h3 {
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  #focus-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  #focus-list li {
+    border: 1px solid var(--focus);
+    background: var(--focus-bg);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  #focus-list li .rank {
+    font-family: "Georgia", serif;
+    font-size: 11px;
+    color: var(--focus);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 2px;
+  }
+  #focus-list li .title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  #focus-list li .score {
+    float: right;
+    font-family: "Georgia", serif;
+    font-size: 18px;
+    color: var(--focus);
+    font-weight: 600;
+    line-height: 1;
+  }
+  #focus-list li.empty {
+    border-style: dashed;
+    border-color: var(--line);
+    background: transparent;
+    color: var(--muted);
+    text-align: center;
+    font-style: italic;
+  }
+  .commitment-wrap {
+    display: block;
+  }
+  .commitment-wrap label {
+    display: block;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  #commitment {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    min-height: 70px;
+    resize: vertical;
+  }
+  #commitment:focus { outline: none; border-color: var(--ink); }
+
+  .attribution {
+    margin: 24px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+  }
+  .attribution a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .attribution a:hover { border-bottom-color: var(--ink); }
+
+  @media (max-width: 800px) {
+    main { grid-template-columns: 1fr; }
+    #focus-list { grid-template-columns: 1fr; }
+    header { padding: 16px; }
+    .quadrant { padding: 16px; }
+    footer { padding: 16px; }
+  }
+
+  @media print {
+    body { background: #fff; font-size: 11px; }
+    header { padding: 12px 0; }
+    .meta button { display: none; }
+    .scale { display: none; }
+    .detail > summary { display: none; }
+    .detail { display: block !important; }
+    .detail > .bullets, .detail > .examples { display: block !important; }
+    .notes { height: auto !important; min-height: 30px; border: none; padding-top: 4px; font-size: 11px; }
+    .notes:placeholder-shown { display: none; }
+    main { grid-template-columns: 1fr 1fr; background: #fff; gap: 0; }
+    .quadrant { padding: 12px; page-break-inside: avoid; }
+    .card { box-shadow: none; page-break-inside: avoid; padding: 8px 10px; }
+    footer { page-break-before: auto; }
+    .score-badge { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Rapid Scale Diagnostic</h1>
+  <div class="meta">
+    <input type="text" id="client-name" placeholder="Client name" value="">
+    <span id="date"></span>
+    <button id="expand-all" title="Open all detail sections">Expand all</button>
+    <button id="collapse-all" title="Close all detail sections">Collapse all</button>
+    <button id="reset" title="Clear all scores and notes">Reset</button>
+    <button id="print">Print / Save PDF</button>
+  </div>
+</header>
+
+<main id="grid"></main>
+
+<footer>
+  <h3>Focus — Lowest 3</h3>
+  <ol id="focus-list"></ol>
+  <div class="commitment-wrap">
+    <label for="commitment">90-day commitment</label>
+    <textarea id="commitment" placeholder="What's the one structural shift to make in the next 90 days?"></textarea>
+  </div>
+  <p class="attribution">
+    Built by <a href="https://pepperpotts.co" target="_blank" rel="noopener">Tim Noakesmith</a>.
+    Framework inspired by the work of Bryan Franklin and Jennifer Russell.
+  </p>
+</footer>
+
+<script>
+const ITEMS = [
+  { id: 'metrics-driven', cat: 'Strategy', title: 'Metrics-Driven',
+    desc: "Alignment & prioritisation comes from metrics, not emotional approval.",
+    bullets: [
+      "People decide priority by looking at metrics independently — not by what makes the boss smile.",
+      "Fast-moving, leading indicators (not lagging revenue).",
+      "Default failure mode: 'social/emotional status exchange' — everyone optimising for approval, not output."
+    ],
+    examples: [
+      { tag: 'Diagnostic', text: "If your team's first question on prioritisation is 'what does Andy think?' — not metrics-driven." }
+    ]
+  },
+  { id: 'perpetual-motion', cat: 'Strategy', title: 'Perpetual Motion',
+    desc: "Asset value grows through normal value delivery.",
+    bullets: [
+      "Each customer you serve grows the underlying asset rather than depleting it.",
+      "Asset compounds just from operating — no special intervention required.",
+      "If serving customers makes the NEXT one harder (diminishing returns), it's working against scale."
+    ],
+    examples: [
+      { tag: 'Yes', text: "LinkedIn: every user grows the network (the asset)." },
+      { tag: 'Yes', text: "Rental property: rents collected, debt down, value up." },
+      { tag: 'No',  text: "Marketing agency: each campaign harder than the last; no asset on the balance sheet." }
+    ]
+  },
+  { id: 'powers-that-be', cat: 'Strategy', title: 'Powers That Be',
+    desc: "Aligned with the most powerful parts of the ecosystem.",
+    bullets: [
+      "The 900-pound gorillas in your ecosystem must benefit from your growth.",
+      "If you need to take down a giant to succeed, the giant wins.",
+      "Map: regulators, dominant distributors, platform owners, incumbent retailers."
+    ],
+    examples: [
+      { tag: 'Cautionary', text: "Napster killed record stores but Napster the company went to zero — crushed by lawsuits." }
+    ]
+  },
+  { id: 'linear-drivers', cat: 'Strategy', title: 'Stacking Growth Drivers',
+    desc: "Virality, multi-nodal, self-serve expansion stacked.",
+    bullets: [
+      "Bi-nodal: you sell to a customer. Multi-nodal: you create the context where others exchange value.",
+      "Multi-nodal businesses are dramatically more profitable and scalable.",
+      "Engineer non-linear growth by stacking multiple linear drivers on top of each other."
+    ],
+    examples: [
+      { tag: 'Multi-nodal', text: "Facebook, App Store, a singles bar (low light + alcohol lowers the inhibition barrier to value exchange that already wants to happen)." },
+      { tag: 'Stacking',    text: "Salesforce: price/seat ↑ + seats/customer ↑ + new departments + more sales hires + more regions = hockey stick." }
+    ]
+  },
+
+  { id: 'appetite-truth', cat: 'Leadership', title: 'Appetite For Truth',
+    desc: "Honesty over comfort, data over feelings.",
+    bullets: [
+      "Active hunger for bad news, especially customer feedback that hurts.",
+      "Narratives and happy ears are anaesthetic — they slow the system's ability to course-correct.",
+      "Hiding from feedback = guaranteed local maximum."
+    ],
+    examples: [
+      { tag: 'Anti-pattern', text: "Client wouldn't invite unhappy affiliates to the conference 'because of the bad energy' — cut off exactly the feedback that would have unblocked scale." }
+    ]
+  },
+  { id: 'inverse-overhead', cat: 'Leadership', title: 'Inverse Overhead',
+    desc: "Everyone you work with is a lift, not a drag.",
+    bullets: [
+      "Before a decision: debate freely. After a decision: drag = out.",
+      "Processing every dissenter's perspective is itself a drag tax.",
+      "The 'stubborn genius' is often more systemic than the dissenters bringing half-considered objections.",
+      "Beautiful path = collaboration. Effective path under scale = terminate the drag. Both are options."
+    ],
+    examples: [
+      { tag: 'Brutal', text: "Elon at Twitter: 'click I agree to the new principles or get the termination letter.' Everyone left was aligned." },
+      { tag: 'Coaching', text: "Co-founder who couldn't disagree without bogging every meeting, skip-levelling other people's teams — released, system unstuck." }
+    ]
+  },
+  { id: 'ready-to-hire', cat: 'Leadership', title: 'Ready To Hire',
+    desc: "Time, funding, clarity to be permanently hiring.",
+    bullets: [
+      "Every JD must be profitable: role generates 2x–5x its fully-loaded cost.",
+      "If yes, why ever stop hiring?",
+      "Build a recruiting APPARATUS that's always running — not a reactive replacement function."
+    ],
+    examples: [
+      { tag: 'Apparatus', text: "Google's billboard math problem — solve it, the answer is the recruiter's phone number." },
+      { tag: 'Apparatus', text: "LinkedIn paid the second-place CEO candidate 4x salary for 6 months to build the recruiting engine. Sold to Microsoft for $19B three years later." }
+    ]
+  },
+  { id: 'fast-to-fire', cat: 'Leadership', title: 'Fast To Fire',
+    desc: "Under 90 days to remove anyone not meeting metrics.",
+    bullets: [
+      "The real cost isn't the empty seat — it's that mediocrity becomes the cultural standard.",
+      "Pattern: founders hem and haw 6-12 months. Day they fire, the team sprints.",
+      "Fast firing is what makes permanent hiring survivable — you accept lower hit rate, you correct fast."
+    ],
+    examples: [
+      { tag: 'Math', text: "World-class hiring is 1-in-3 to 2-in-3 even at calm pace. Without fast-firing, your hiring mistakes compound into culture." }
+    ]
+  },
+
+  { id: 'true-value', cat: 'Demand', title: 'True Value Creation',
+    desc: "Creates value in a transparent, 'perfect' market.",
+    bullets: [
+      "If your customers knew everything, would they still buy? Yes = real value.",
+      "No reliance on information asymmetry, customer ignorance, or arbitrage.",
+      "Durable across long time horizons — required for any 'hundred-year company' play."
+    ],
+    examples: [
+      { tag: 'Test', text: "Imagine writing your customer the most honest sales email of all time. Do they still convert?" }
+    ]
+  },
+  { id: 'pmf', cat: 'Demand', title: 'Product-Market Fit',
+    desc: "Large market clamouring for your product.",
+    bullets: [
+      "Best test: do your shoulder sockets feel like your arms are being pulled out?",
+      "Pushing sales every quarter = no PMF.",
+      "Drowning trying to serve demand = probably PMF.",
+      "Market size matters too — not just niche fit."
+    ],
+    examples: [
+      { tag: 'Signal', text: "If sales is heroic effort every quarter, you don't have it. If ops can't keep up, you probably do." }
+    ]
+  },
+  { id: 'low-drag-buying', cat: 'Demand', title: 'Low-Drag Buying',
+    desc: "Buying is easy, fast, and low-risk.",
+    bullets: [
+      "Once the customer has decided they want it, how easy is it to actually get it?",
+      "Friction in buying = you need humans to hand-hold every customer over the line. Doesn't scale.",
+      "True for $400M OEM deals and consumer purchases alike."
+    ],
+    examples: [
+      { tag: 'Famous', text: "Amazon's 1-Click — scaled by removing literal clicks from the cart." }
+    ]
+  },
+  { id: 'take-as-much', cat: 'Demand', title: '"I\'ll Take As Much As You Have"',
+    desc: "Don't have to convince customers they want it.",
+    bullets: [
+      "If you're educating the market that they need it, you're not scaling — you're evangelising.",
+      "Stack linear growth drivers on top of demand that already exists.",
+      "Customers should be pulling the product out of you, not the other way round."
+    ],
+    examples: [
+      { tag: 'Signal', text: "When the inbound question is 'when can I have more?' instead of 'why should I care?' — you're there." }
+    ]
+  },
+
+  { id: 'jit-systems', cat: 'Execution', title: 'Just-In-Time Systems',
+    desc: "Understands investment criteria and acts swiftly.",
+    bullets: [
+      "Pre-decide the trigger that green-lights major investment, then act when the trigger hits — don't re-debate.",
+      "Three failure modes: too late (fire drill), too early (no urgency, wrong design, gathers dust), three debates (same decision relitigated at early warning / middle / fire drill)."
+    ],
+    examples: [
+      { tag: 'LinkedIn', text: "Mapped user growth curve. Identified the user-count at 'six months before crash' (new system takes 6 months to build). When that number hit, millions of dollars released automatically. No second meeting." }
+    ]
+  },
+  { id: 'scalable-delivery', cat: 'Execution', title: 'Scalable Delivery',
+    desc: "2+:1 ratio of revenue growth to headcount growth.",
+    bullets: [
+      "Revenue must grow at least 2x faster than headcount.",
+      "Coaching at 1:1 hours is NOT scalable — it's a lifestyle business, even at millions of revenue.",
+      "Scale and profit are usually zero-sum short-term — you're paying future expenses now.",
+      "Many 'scalable' companies should focus on margin/efficiency instead and stop pretending."
+    ],
+    examples: [
+      { tag: 'Honest', text: "If the answer is no, focus on margin and efficiency — not a doomed scale story." }
+    ]
+  },
+  { id: 'max-delegation', cat: 'Execution', title: 'Maximum Delegation',
+    desc: "Employees make decisions without asking.",
+    bullets: [
+      "Handing out tasks is NOT delegating. Delegation = decisions made in your absence and acted on.",
+      "Hire based on what decisions you'd trust this person to make without you.",
+      "Test: in your absence, can a major change actually execute? Or does it stall waiting for permission?",
+      "Hierarchy and delegation aren't opposed — hierarchies make decision-rights clear."
+    ],
+    examples: [
+      { tag: 'Cautionary', text: "Founder reorganised into business units, thought he'd delegated. Stepped away two months — revenue halved, profit went negative. People were doing what he said, not deciding." }
+    ]
+  },
+  { id: 'resource-alloc', cat: 'Execution', title: 'Resource Allocation',
+    desc: "Invests the most in the most critical areas.",
+    bullets: [
+      "Common dysfunction: 80% of revenue from product A, 80% of R&D on product B.",
+      "Invest where the unique value is. If you can't be #1 in a category, create a category you can be #1 in.",
+      "Don't gamble on hunches with no evidence — invest where the evidence already lives."
+    ],
+    examples: [
+      { tag: 'Cautionary', text: "Client in revenue decline. 90% of discretionary spend for 5 years went into a mobile product. Zero mobile usage, zero customer requests. Core business: phone consultations. Founder just 'felt' mobile was where everyone was." }
+    ]
+  },
+];
+
+const CATS = ['Strategy', 'Leadership', 'Demand', 'Execution'];
+const STORAGE_KEY = 'rapid-scale-diagnostic-v1';
+
+const state = load() || { scores: {}, notes: {}, commitment: '', client: '' };
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); }
+  catch (e) { return null; }
+}
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function scoreClass(v) {
+  if (v == null) return '';
+  if (v <= 4) return 's-low';
+  if (v <= 7) return 's-mid';
+  return 's-hi';
+}
+function buttonClass(v) {
+  if (v <= 4) return 'v-low';
+  if (v <= 7) return 'v-mid';
+  return 'v-hi';
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  CATS.forEach(cat => {
+    const section = document.createElement('section');
+    section.className = 'quadrant';
+    section.innerHTML = `<h2>${cat}</h2><div class="cards"></div>`;
+    const cards = section.querySelector('.cards');
+    ITEMS.filter(i => i.cat === cat).forEach(item => {
+      cards.appendChild(renderCard(item));
+    });
+    grid.appendChild(section);
+  });
+  renderFocus();
+}
+
+function renderCard(item) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.id = item.id;
+  const score = state.scores[item.id];
+  const scaleBtns = Array.from({length: 10}, (_, i) => {
+    const v = i + 1;
+    const sel = score === v ? `selected ${buttonClass(v)}` : '';
+    return `<button class="${sel}" data-v="${v}">${v}</button>`;
+  }).join('');
+  const bulletsHtml = (item.bullets || []).map(b => `<li>${b}</li>`).join('');
+  const examplesHtml = (item.examples || []).map(e => `
+    <div class="example">
+      <span class="example-tag">${e.tag}</span>
+      <span class="example-text">${e.text}</span>
+    </div>
+  `).join('');
+  card.innerHTML = `
+    <div class="card-head">
+      <h3><span class="focus-tag">FOCUS</span>${item.title}</h3>
+      <span class="score-badge ${scoreClass(score)}">${score ?? '—'}</span>
+    </div>
+    <p class="desc">${item.desc}</p>
+    <div class="scale">${scaleBtns}</div>
+    <details class="detail">
+      <summary>What this means · examples</summary>
+      <ul class="bullets">${bulletsHtml}</ul>
+      <div class="examples">${examplesHtml}</div>
+    </details>
+    <textarea class="notes" placeholder="Notes...">${state.notes[item.id] || ''}</textarea>
+  `;
+  card.querySelectorAll('.scale button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const v = parseInt(btn.dataset.v, 10);
+      if (state.scores[item.id] === v) {
+        delete state.scores[item.id];
+      } else {
+        state.scores[item.id] = v;
+      }
+      save();
+      render();
+    });
+  });
+  card.querySelector('.notes').addEventListener('input', (e) => {
+    state.notes[item.id] = e.target.value;
+    save();
+  });
+  return card;
+}
+
+function renderFocus() {
+  const scored = ITEMS
+    .filter(i => state.scores[i.id] != null)
+    .map(i => ({ ...i, score: state.scores[i.id] }))
+    .sort((a, b) => a.score - b.score);
+  const lowest = scored.slice(0, 3);
+  const lowestIds = new Set(lowest.map(i => i.id));
+
+  document.querySelectorAll('.card').forEach(c => {
+    c.classList.toggle('focus', lowestIds.has(c.dataset.id));
+  });
+
+  const list = document.getElementById('focus-list');
+  list.innerHTML = '';
+  for (let i = 0; i < 3; i++) {
+    const li = document.createElement('li');
+    if (lowest[i]) {
+      li.innerHTML = `
+        <span class="score">${lowest[i].score}</span>
+        <span class="rank">#${i+1} · ${lowest[i].cat}</span>
+        <span class="title">${lowest[i].title}</span>
+      `;
+    } else {
+      li.className = 'empty';
+      li.textContent = `Focus area ${i+1} — score more items to reveal`;
+    }
+    list.appendChild(li);
+  }
+}
+
+document.getElementById('client-name').value = state.client;
+document.getElementById('client-name').addEventListener('input', e => {
+  state.client = e.target.value;
+  save();
+});
+
+document.getElementById('commitment').value = state.commitment;
+document.getElementById('commitment').addEventListener('input', e => {
+  state.commitment = e.target.value;
+  save();
+});
+
+document.getElementById('date').textContent = new Date().toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric'
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  if (confirm('Clear all scores, notes, and commitment for this session?')) {
+    state.scores = {};
+    state.notes = {};
+    state.commitment = '';
+    save();
+    document.getElementById('commitment').value = '';
+    render();
+  }
+});
+
+document.getElementById('expand-all').addEventListener('click', () => {
+  document.querySelectorAll('.detail').forEach(d => d.open = true);
+});
+document.getElementById('collapse-all').addEventListener('click', () => {
+  document.querySelectorAll('.detail').forEach(d => d.open = false);
+});
+document.getElementById('print').addEventListener('click', () => {
+  document.querySelectorAll('.detail').forEach(d => d.open = true);
+  window.print();
+});
+
+render();
+</script>
+
+</body>
+</html>
